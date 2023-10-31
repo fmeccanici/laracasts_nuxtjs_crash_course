@@ -33,6 +33,12 @@
     <div>
       {{ user.name }}
     </div>
+
+    <div>
+      <h2>Weather</h2>
+      <div>Description: {{ weather.weather[0].description }}</div>
+      <div>Temperature: {{ weather.main.temp }} C</div>
+    </div>
   </div>
 </template>
 
@@ -53,4 +59,6 @@
   const { data: users3} = await useFetch('https://jsonplaceholder.typicode.com/users');
 
   const { data: user} = await useFetch('https://jsonplaceholder.typicode.com/users/1', { pick: ['id', 'name', 'email'] });
+
+  const { data: weather } = await useFetch('/api/weather');
 </script>

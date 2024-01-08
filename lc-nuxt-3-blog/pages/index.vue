@@ -1,6 +1,9 @@
 <script setup lang="ts">
-  const title = useState('title');
-  const posts = await useNuxtApp().$apiFetch('/api/posts');
+definePageMeta({
+  middleware: ['auth']
+})
+const title = useState('title');
+const posts = await useNuxtApp().$apiFetch('/api/posts');
 </script>
 
 <template>
